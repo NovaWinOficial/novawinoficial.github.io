@@ -50,13 +50,13 @@ cancelPay?.addEventListener("click", closePayModal);
 
 confirmPay?.addEventListener("click", () => {
   localStorage.setItem("novaWinPaid", "true");
-  userRole?.innerText = "premium";
+  if (userRole) userRole.innerText = "premium";
   closePayModal();
   alert("Acesso liberado! (Simulação)");
 });
 
 if (localStorage.getItem("novaWinPaid") === "true") {
-  userRole?.innerText = "premium";
+  if (userRole) userRole.innerText = "premium";
 }
 
 
@@ -79,6 +79,7 @@ themeBtn?.addEventListener("click", () => {
     localStorage.setItem("novaWinTheme", "light");
   }
 });
+
 
 
 
