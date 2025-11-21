@@ -66,6 +66,29 @@ confirmPay?.addEventListener("click", () => {
 if (localStorage.getItem("novaWinPaid") === "true") {
   userRole.innerText = "premium";
 }
+// =======================
+// TEMA CLARO / ESCURO
+// =======================
+
+const themeBtn = document.getElementById("toggleTheme");
+
+// Carregar tema salvo ao abrir o site
+if (localStorage.getItem("novaWinTheme") === "dark") {
+    document.body.classList.add("dark-theme");
+}
+
+themeBtn?.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-theme");
+
+    // Salvar preferencia
+    if (document.body.classList.contains("dark-theme")) {
+        localStorage.setItem("novaWinTheme", "dark");
+    } else {
+        localStorage.setItem("novaWinTheme", "light");
+    }
+});
+
 
 
 
