@@ -1,0 +1,47 @@
+/* Corporate Premium Style */
+:root{
+  --bg:#f4f6f8;
+  --muted:#6b7280;
+  --primary:#0b74da;
+  --card:#ffffff;
+  --border:#e6eef9;
+  --shadow: 0 6px 20px rgba(11,116,218,0.08);
+}
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#111}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.6));border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+.brand-text h1{margin:0;font-size:18px}
+.brand-text .tag{margin:0;font-size:12px;color:var(--muted)}
+.nav{display:flex;gap:12px;align-items:center}
+.nav a{color:#222;text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px}
+.nav a.active{background:var(--primary);color:#fff}
+.actions{display:flex;gap:8px;align-items:center}
+.btn{padding:8px 14px;border-radius:8px;border:1px solid transparent;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--primary);color:#fff}
+.btn.outline{background:transparent;border:1px solid var(--border);color:#111}
+.container{display:flex;gap:20px;padding:28px;max-width:1200px;margin:24px auto}
+.sidebar{width:220px}
+.sidebar ul{list-style:none;padding:12px;margin:0;background:var(--card);border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.sidebar ul li{padding:8px;color:var(--muted)}
+.sidebar-footer{margin-top:12px;font-size:13px;color:var(--muted)}
+.content{flex:1}
+.hero{padding:24px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:var(--shadow);border:1px solid var(--border)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.footer{text-align:center;padding:24px;color:var(--muted);margin-top:40px}
+.tutorial-list{margin:0;padding-left:18px;color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.45);padding:20px}
+.modal .modal-content{max-width:520px;width:100%;text-align:center}
+
+/* Responsive */
+@media(max-width:900px){
+  .container{flex-direction:column;padding:16px}
+  .sidebar{width:100%}
+  .grid{grid-template-columns:1fr}
+}

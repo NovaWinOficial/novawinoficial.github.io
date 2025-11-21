@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovaWin — Corporativo Premium</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">NW</div>
+      <div class="brand-text">
+        <h1>NovaWin</h1>
+        <p class="tag">Tutoriais profissionais para Windows</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="active">Início</a>
+      <a href="pages/tutorials.html">Tutoriais</a>
+      <a href="pages/downloads.html">Downloads</a>
+      <a href="pages/about.html">Sobre</a>
+      <a href="pages/settings.html">Configurações</a>
+    </nav>
+    <div class="actions">
+      <button id="btnLogin" class="btn outline">Entrar</button>
+      <button id="btnPay" class="btn primary">Pagar R$0,00</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <ul>
+        <li><strong>Categorias</strong></li>
+        <li>Iniciante</li>
+        <li>Intermediário</li>
+        <li>Avançado</li>
+        <li>Erros Comuns</li>
+      </ul>
+      <div class="sidebar-footer">Conta: <span id="userRole">guest</span></div>
+    </aside>
+
+    <section class="content">
+      <div class="hero card">
+        <h2>Bem-vindo ao NovaWin — Corporativo</h2>
+        <p>Conteúdos organizados, tutoriais passo-a-passo e materiais para treinar sua equipe.</p>
+        <div class="cta-row">
+          <button id="ctaPay" class="btn primary">Assinar (R$0,00)</button>
+          <button id="ctaLearn" class="btn outline">Ver Tutoriais</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Segurança e Boas Práticas</h3>
+          <p>Guia rápido para manter o Windows seguro em ambiente corporativo.</p>
+        </div>
+        <div class="card">
+          <h3>Otimização</h3>
+          <p>Passos para melhorar desempenho e reduzir downtime.</p>
+        </div>
+        <div class="card">
+          <h3>Instalação em Massa</h3>
+          <p>Automatize instalações e crie imagens padrão para sua empresa.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    NovaWin © 2025 — Todos os direitos reservados.
+  </footer>
+
+  <!-- Paywall Modal -->
+  <div id="payModal" class="modal" aria-hidden="true">
+    <div class="modal-content card">
+      <h3>Assinatura NovaWin</h3>
+      <p>Plano Corporativo — acesso a todos os tutoriais</p>
+      <div class="price">Valor atual: <strong>R$0,00</strong></div>
+      <div class="modal-actions">
+        <button id="confirmPay" class="btn primary">Pagar e liberar</button>
+        <button id="cancelPay" class="btn outline">Cancelar</button>
+      </div>
+      <p class="small">Observação: Este é um exemplo frontend. Para pagamentos reais integre um provedor (Stripe/Mercado Pago).</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
