@@ -45,3 +45,42 @@ body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);
   .sidebar{width:100%}
   .grid{grid-template-columns:1fr}
 }
+/* BOTÃO DE TEMA */
+.theme-btn {
+    padding: 10px 20px;
+    background-color: #555; /* cinza */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background-color: #777;
+}
+
+/* TEMA ESCURO */
+.dark-theme {
+    background-color: #111 !important;
+    color: #eee !important;
+}
+
+.dark-theme .container {
+    background-color: #222 !important;
+}
+
+.dark-theme .card {
+    background-color: #222 !important;
+}
+
+.dark-theme .nav-btn {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+.dark-theme .nav-btn:hover {
+    background-color: #444 !important;
+}
+
