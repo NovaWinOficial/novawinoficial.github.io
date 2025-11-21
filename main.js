@@ -57,14 +57,14 @@ cancelPay?.addEventListener("click", closePayModal);
 // Confirmar pagamento (simulado R$0,00)
 confirmPay?.addEventListener("click", () => {
   localStorage.setItem("novaWinPaid", "true"); // salva a compra
-  userRole.innerText = "premium"; // atualiza o texto na sidebar
+  userRole?.innerText = "premium"; // atualiza o texto na sidebar
   closePayModal();
   alert("Acesso liberado! (Simulação)");
 });
 
 // Carregar estado salvo
 if (localStorage.getItem("novaWinPaid") === "true") {
-  userRole.innerText = "premium";
+  userRole?.innerText = "premium";
 }
 // =======================
 // TEMA CLARO / ESCURO
