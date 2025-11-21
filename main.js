@@ -27,7 +27,6 @@ document.getElementById("btn-settings")?.addEventListener("click", () => {
 // PAYWALL / PAGAMENTO
 // -------------------------
 
-// Captura de elementos
 const payModal = document.getElementById("payModal");
 const btnPay = document.getElementById("btnPay");
 const ctaPay = document.getElementById("ctaPay");
@@ -35,59 +34,52 @@ const confirmPay = document.getElementById("confirmPay");
 const cancelPay = document.getElementById("cancelPay");
 const userRole = document.getElementById("userRole");
 
-// Função para abrir modal
 function openPayModal() {
   payModal.style.display = "flex";
   payModal.setAttribute("aria-hidden", "false");
 }
 
-// Função para fechar modal
 function closePayModal() {
   payModal.style.display = "none";
   payModal.setAttribute("aria-hidden", "true");
 }
 
-// Eventos de abrir
 btnPay?.addEventListener("click", openPayModal);
 ctaPay?.addEventListener("click", openPayModal);
-
-// Evento de cancelar
 cancelPay?.addEventListener("click", closePayModal);
 
-// Confirmar pagamento (simulado R$0,00)
 confirmPay?.addEventListener("click", () => {
-  localStorage.setItem("novaWinPaid", "true"); // salva a compra
-  userRole?.innerText = "premium"; // atualiza o texto na sidebar
+  localStorage.setItem("novaWinPaid", "true");
+  userRole?.innerText = "premium";
   closePayModal();
   alert("Acesso liberado! (Simulação)");
 });
 
-// Carregar estado salvo
 if (localStorage.getItem("novaWinPaid") === "true") {
   userRole?.innerText = "premium";
 }
-// =======================
+
+
+// -------------------------
 // TEMA CLARO / ESCURO
-// =======================
+// -------------------------
 
 const themeBtn = document.getElementById("toggleTheme");
 
-// Carregar tema salvo ao abrir o site
 if (localStorage.getItem("novaWinTheme") === "dark") {
-    document.body.classList.add("dark-theme");
+  document.body.classList.add("dark-theme");
 }
 
 themeBtn?.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
 
-    document.body.classList.toggle("dark-theme");
-
-    // Salvar preferencia
-    if (document.body.classList.contains("dark-theme")) {
-        localStorage.setItem("novaWinTheme", "dark");
-    } else {
-        localStorage.setItem("novaWinTheme", "light");
-    }
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("novaWinTheme", "dark");
+  } else {
+    localStorage.setItem("novaWinTheme", "light");
+  }
 });
+
 
 
 
