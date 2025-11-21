@@ -1,57 +1,22 @@
-// Simple frontend paywall + basic role simulation
-(function(){
-  const payModal = document.getElementById('payModal');
-  const btnPay = document.getElementById('btnPay');
-  const btnLogin = document.getElementById('btnLogin');
-  const confirmPay = document.getElementById('confirmPay');
-  const cancelPay = document.getElementById('cancelPay');
-  const ctaPay = document.getElementById('ctaPay');
-  const ctaLearn = document.getElementById('ctaLearn');
-  const userRoleEl = document.getElementById('userRole');
+// Botões que mudam de página corretamente no GitHub Pages
+document.getElementById("btn-home")?.addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
 
-  function updateUI(){
-    const role = localStorage.getItem('novawin_role') || 'guest';
-    userRoleEl.textContent = role;
-    if(role === 'premium'){
-      // hide pay buttons
-      document.querySelectorAll('.btn.primary').forEach(b=>b.style.display='none');
-    }
-  }
+document.getElementById("btn-about")?.addEventListener("click", () => {
+  window.location.href = "./about.html";
+});
 
-  // Open modal
-  function openModal(){ payModal.style.display = 'flex'; payModal.setAttribute('aria-hidden','false'); }
-  function closeModal(){ payModal.style.display = 'none'; payModal.setAttribute('aria-hidden','true'); }
+document.getElementById("btn-downloads")?.addEventListener("click", () => {
+  window.location.href = "./downloads.html";
+});
 
-  btnPay.addEventListener('click', openModal);
-  ctaPay.addEventListener('click', openModal);
+document.getElementById("btn-tutorials")?.addEventListener("click", () => {
+  window.location.href = "./tutorials.html";
+});
 
-  confirmPay.addEventListener('click', ()=>{
-    // Simulate payment success
-    localStorage.setItem('novawin_role','premium');
-    alert('Pagamento simulado: Acesso Premium liberado.');
-    updateUI();
-    closeModal();
-  });
+document.getElementById("btn-settings")?.addEventListener("click", () => {
+  window.location.href = "./settings.html";
+});
 
-  cancelPay.addEventListener('click', ()=>{ closeModal(); });
-
-  btnLogin.addEventListener('click', ()=>{
-    const cur = localStorage.getItem('novawin_role') || 'guest';
-    if(cur === 'guest'){
-      const want = confirm('Você não está logado. Deseja criar uma conta (simulação)?');
-      if(want){ localStorage.setItem('novawin_role','premium'); alert('Conta simulada criada e logada como premium.'); updateUI(); }
-    } else {
-      const want = confirm('Deseja deslogar?');
-      if(want){ localStorage.removeItem('novawin_role'); alert('Deslogado.'); updateUI(); }
-    }
-  });
-
-  ctaLearn.addEventListener('click', ()=>{ window.location.href = 'pages/tutorials.html'; });
-
-  // Close modal when clicking outside content
-  payModal.addEventListener('click', (e)=>{ if(e.target === payModal) closeModal(); });
-
-  // Init
-  updateUI();
-})();
 
