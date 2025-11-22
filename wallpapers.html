@@ -1,192 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallpapers - NovaWin</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wallpapers - NovaWin</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .wallpaper-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-    <style>
-        .wallpaper-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+    .wallpaper-card {
+      background: #e5e5e5;
+      padding: 15px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-        .wallpaper-card {
-            background: #ddd;
-            padding: 15px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    .wallpaper-card img {
+      width: 120px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-        .wallpaper-card img {
-            width: 120px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+    .wallpaper-card img:hover {
+      transform: scale(1.05);
+    }
 
-        .wallpaper-card img:hover {
-            transform: scale(1.05);
-        }
+    .wallpaper-actions button {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-        .download-btn {
-            padding: 10px 15px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-        }
+    /* ZOOM */
+    .zoom-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
 
-        /* Modal de zoom */
-        .zoom-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .zoom-modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-    </style>
+    .zoom-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+  </style>
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">NW</div>
-            <div class="brand-text">
-                <h1>NovaWin</h1>
-                <p class="tag">Wallpapers</p>
-            </div>
-        </div>
-        <nav class="nav">
-            <a href="index.html">Início</a>
-            <a href="tutorials.html">Tutoriais</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="about.html">Sobre</a>
-            <a href="settings.html">Configurações</a>
-        </nav>
-        <div class="actions">
-            <a href="downloads.html" class="btn outline">Voltar</a>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="content">
-            <h2>Wallpapers disponíveis</h2>
-
-            <div class="wallpaper-grid">
-
-                <!-- Card automático para cada imagem -->
-                <!-- Basta seguir o padrão abaixo -->
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/anime_gamer.jpg" data-full="wallpapers/anime_gamer.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/anime_gamer.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/anime_gamer2.jpg" data-full="wallpapers/anime_gamer2.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/anime_gamer2.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/bmw_policial.jpg" data-full="wallpapers/bmw_policial.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/bmw_policial.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/central_gamer.jpg" data-full="wallpapers/central_gamer.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/central_gamer.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/cod(1).png" data-full="wallpapers/cod(1).png">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/cod(1).png')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/cod(2).jpg" data-full="wallpapers/cod(2).jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/cod(2).jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/cod(3).jpg" data-full="wallpapers/cod(3).jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/cod(3).jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/floresta_astheric.jpg" data-full="wallpapers/floresta_astheric.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/floresta_astheric.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/heroi.jpg" data-full="wallpapers/heroi.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/heroi.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/moto_dark.jpg" data-full="wallpapers/moto_dark.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/moto_dark.jpg')">Baixar</button>
-                </div>
-
-                <div class="wallpaper-card">
-                    <img src="wallpapers/mustang_preto.jpg" data-full="wallpapers/mustang_preto.jpg">
-                    <button class="download-btn" onclick="downloadImg('wallpapers/mustang_preto.jpg')">Baixar</button>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">NovaWin © 2025</footer>
-
-    <!-- Modal de Zoom -->
-    <div id="zoomModal" class="zoom-modal" onclick="closeZoom()">
-        <img id="zoomImg" src="">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">NW</div>
+      <div class="brand-text">
+        <h1>NovaWin</h1>
+        <p class="tag">Wallpapers</p>
+      </div>
     </div>
 
-    <script>
-        // FUNÇÃO DE DOWNLOAD
-        function downloadImg(path) {
-            const a = document.createElement("a");
-            a.href = path;
-            a.download = path.split("/").pop();
-            a.click();
-        }
+    <nav class="nav">
+      <a href="../index.html">Início</a>
+      <a href="tutorials.html">Tutoriais</a>
+      <a href="downloads.html" class="active">Downloads</a>
+      <a href="about.html">Sobre</a>
+    </nav>
 
-        // ZOOM
-        const images = document.querySelectorAll(".wallpaper-card img");
-        const zoomModal = document.getElementById("zoomModal");
-        const zoomImg = document.getElementById("zoomImg");
+    <div class="actions">
+      <a class="btn outline" href="downloads.html">Voltar</a>
+    </div>
+  </header>
 
-        images.forEach(img => {
-            img.addEventListener("click", () => {
-                zoomImg.src = img.dataset.full;
-                zoomModal.style.display = "flex";
-            });
-        });
+  <main class="container">
+    <section class="content">
+      <div class="card">
+        <h2>Wallpapers disponíveis</h2>
 
-        function closeZoom() {
-            zoomModal.style.display = "none";
-        }
-    </script>
+        <div class="wallpaper-grid">
 
+          <!-- Cada bloco abaixo é automaticamente gerado -->
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/anime_gamer.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Anime Gamer</p>
+              <a href="../wallpapers/anime_gamer.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/anime_gamer2.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Anime Gamer 2</p>
+              <a href="../wallpapers/anime_gamer2.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/bmw_policial.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>BMW Policial</p>
+              <a href="../wallpapers/bmw_policial.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/central_gamer.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Central Gamer</p>
+              <a href="../wallpapers/central_gamer.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/cod(1).png" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>COD (1)</p>
+              <a href="../wallpapers/cod(1).png" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/cod(2).jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>COD (2)</p>
+              <a href="../wallpapers/cod(2).jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/cod(3).jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>COD (3)</p>
+              <a href="../wallpapers/cod(3).jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/floresta_astheric.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Floresta Aesthetic</p>
+              <a href="../wallpapers/floresta_astheric.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/heroi.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Herói</p>
+              <a href="../wallpapers/heroi.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/moto_dark.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Moto Dark</p>
+              <a href="../wallpapers/moto_dark.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="wallpaper-card">
+            <img src="../wallpapers/mustang_preto.jpg" onclick="zoom(this.src)">
+            <div class="wallpaper-actions">
+              <p>Mustang Preto</p>
+              <a href="../wallpapers/mustang_preto.jpg" download>
+                <button>Baixar</button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ZOOM -->
+  <div class="zoom-overlay" id="zoomArea" onclick="this.style.display='none'">
+    <img id="zoomImg">
+  </div>
+
+  <script>
+    function zoom(src) {
+      const img = document.getElementById("zoomImg");
+      img.src = src;
+      document.getElementById("zoomArea").style.display = "flex";
+    }
+  </script>
+
+  <footer class="footer">NovaWin © 2025</footer>
 </body>
 </html>
+
 
