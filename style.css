@@ -148,6 +148,33 @@ body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);
 .download-btn:hover {
     background-color: #777;
 }
+/* BOTÕES BONITOS PARA DOWNLOADS */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.download-btn {
+    background-color: #555;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: 0.25s;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.download-btn:hover {
+    background-color: #777;
+    transform: translateY(-3px);
+}
 
 
 
