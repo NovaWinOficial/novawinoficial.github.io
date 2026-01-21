@@ -22,8 +22,6 @@ document.getElementById("btn-settings")?.addEventListener("click", () => {
   window.location.href = "./settings.html";
 });
 
-<a href="produtos.html">Produtos</a>
-
 // -------------------------
 // PAYWALL / PAGAMENTO
 // -------------------------
