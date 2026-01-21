@@ -1,181 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Produtos - NovaWin</title>
+  <meta charset="UTF-8">
+  <title>Produtos | NovaWin</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .wallpaper-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .wallpaper-card {
-      background: var(--card-bg);
-      padding: 15px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      transition: 0.2s;
-    }
-
-    .wallpaper-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .wallpaper-card img {
-      width: 120px;
-      height: 75px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .wallpaper-card img:hover {
-      transform: scale(1.05);
-    }
-
-    .wallpaper-actions button {
-      padding: 8px 14px;
-      border-radius: 8px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .wallpaper-actions button:hover {
-      opacity: 0.8;
-    }
-
-    .zoom-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .zoom-overlay img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-  </style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">NW</div>
-      <div class="brand-text">
-        <h1>NovaWin</h1>
-        <p class="tag">Recomendações</p>
-      </div>
+
+<header class="topo">
+  <h1>NovaWin</h1>
+  <p>Produtos custo-benefício recomendados</p>
+</header>
+
+<main class="container">
+
+  <div class="produto">
+    <img src="imagens/ssd.jpg" alt="SSD NVMe 1TB">
+    <div class="info">
+      <h2>SSD NVMe 1TB</h2>
+      <p class="preco">R$ 399,90</p>
+      <a href="https://www.mercadolivre.com.br/" target="_blank">
+        Ver produto
+      </a>
     </div>
-
-    <nav class="nav">
-      <a href="../index.html">Início</a>
-      <a href="tutorials.html">Tutoriais</a>
-      <a href="downloads.html" class="active">Downloads</a>
-      <a href="about.html">Sobre</a>
-    </nav>
-
-    <div class="actions">
-      <a class="btn outline" href="downloads.html">Voltar</a>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="content">
-      <div class="card">
-        <h2>Wallpapers disponíveis</h2>
-
-        <div class="wallpaper-grid">
-
-          <!-- Os wallpapers serão carregados automaticamente pelo JS -->
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="zoom-overlay" id="zoomArea" onclick="this.style.display='none'">
-    <img id="zoomImg">
   </div>
 
-  <script>
-    function zoom(src) {
-      const img = document.getElementById("zoomImg");
-      img.src = src;
-      document.getElementById("zoomArea").style.display = "flex";
-    }
+  <div class="produto">
+    <img src="imagens/ram.jpg" alt="Memória RAM 16GB">
+    <div class="info">
+      <h2>Memória RAM 16GB DDR4</h2>
+      <p class="preco">R$ 289,90</p>
+      <a href="https://www.amazon.com.br/" target="_blank">
+        Ver produto
+      </a>
+    </div>
+  </div>
 
-const wallpapers = [
-  ["Anime_gamer.jpg", "Anime Gamer"],
-  ["Azus_gamer_2.jpg", "Azus Gamer 2"],
-  ["BMW_M4.jpg", "BMW M4"],
-  ["BMW_M5.jpg", "BMW M5"],
-  ["BMW_M5_F90.jpg", "BMW M5 F90"],
-  ["BMW_dark.jpg", "BMW Dark"],
-  ["BMW_prata.jpg", "BMW Prata"],
-  ["BMW_preta.jpg", "BMW Preta"],
-  ["BMW_preta_2.jpg", "BMW Preta 2"],
-  ["Batalha_gamer.jpg", "Batalha Gamer"],
-  ["COD.jpg", "COD"],
-  ["COD_2.jpg", "COD 2"],
-  ["COD_3.jpg", "COD 3"],
-  ["COD_4.jpg", "COD 4"],
-  ["Dodge_challanger.jpg", "Dodge Challenger"],
-  ["Dodge_challanger_2.jpg", "Dodge Challenger 2"],
-  ["Homem_dark.jpg", "Homem Dark"],
-  ["Luta_gamer.jpg", "Luta Gamer"],
-  ["Mustang_vermelho.jpg", "Mustang Vermelho"],
-  ["aesthetic.jpg", "Aesthetic"],
-  ["azus_gamer.jpg", "Azus Gamer"],
-  ["estrada_drak.jpg", "Estrada Dark"],
-  ["farol_de_carro.jpg", "Farol de Carro"],
-  ["ferrari_f40.jpeg", "Ferrari F40"],
-  ["floresta_aesthetic.png", "Floresta Aesthetic"],
-  ["herói.jpg", "Herói"],
-  ["mercedes_AMG.jpg", "Mercedes AMG"],
-  ["pagani_huayra_.jpg", "Pagani Huayra"],
-  ["personagem_gamer.jpg", "Personagem Gamer"]
-];
+  <div class="produto">
+    <img src="imagens/mouse.jpg" alt="Mouse Gamer">
+    <div class="info">
+      <h2>Mouse Gamer Custo-Benefício</h2>
+      <p class="preco">R$ 79,90</p>
+      <a href="https://shopee.com.br/" target="_blank">
+        Ver produto
+      </a>
+    </div>
+  </div>
 
+</main>
 
-    const container = document.querySelector(".wallpaper-grid");
-
-    wallpapers.forEach(([file, name]) => {
-      const card = document.createElement("div");
-      card.className = "wallpaper-card";
-
-      card.innerHTML = `
-        <img src="../wallpapers/${file}" onclick="zoom(this.src)">
-        <div class="wallpaper-actions">
-          <p>${name}</p>
-          <a href="../wallpapers/${file}" download>
-            <button>Baixar</button>
-          </a>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  </script>
-
-  <script src="../main.js"></script>
-
-  <footer class="footer">NovaWin © 2025</footer>
+<footer class="rodape">
+  <p>Os links acima são apenas informativos. Em breve, links de afiliados.</p>
+</footer>
 
 </body>
 </html>
+
