@@ -22,10 +22,6 @@ document.getElementById("btn-settings")?.addEventListener("click", () => {
   window.location.href = "./settings.html";
 });
 
-document.getElementById("btn-product")?.addEventListener("click", () => {
-  window.location.href = "./produtos.html";
-});
-
 // -------------------------
 // PAYWALL / PAGAMENTO
 // -------------------------
