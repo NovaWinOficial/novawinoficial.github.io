@@ -204,11 +204,7 @@ body {
 
 .produto {
   width: 280px;
-  box-sizing: border-box;
-}
-
-.produtos {
-  background: rgba(255, 0, 0, 0.05);
+  flex: 0 0 auto;
 }
 
 .produto img {
