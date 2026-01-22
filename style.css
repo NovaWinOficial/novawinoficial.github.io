@@ -207,6 +207,10 @@ body {
   box-sizing: border-box;
 }
 
+.produtos {
+  background: rgba(255, 0, 0, 0.05);
+}
+
 .produto img {
   width: 100%;
   height: 160px;
