@@ -248,16 +248,6 @@ body {
   display: block;
 }
 
-.produtos {
-  display: flex;
-  gap: 20px;
-}
-
-.produto {
-  width: 200px;
-  height: 100px;
-  background: red;
-}
 
 
 
