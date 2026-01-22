@@ -259,5 +259,17 @@ body {
   flex: 0 0 280px !important;
 }
 
+.cards {
+  display: flex;
+  gap: 20px;      /* espaço entre eles */
+  background: red; /* só pra teste */
+}
+
+.card {
+  width: 200px;
+  height: 150px;
+  background: white;
+}
+
 
 
