@@ -249,5 +249,15 @@ body {
   background: red !important;
 }
 
+.produtos {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.produto {
+  width: 280px !important;
+  flex: 0 0 280px !important;
+}
+
 
 
